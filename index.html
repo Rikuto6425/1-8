@@ -4,38 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>実験だよお～！</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            text-align: center;
+            color: #fff;
+            transition: background 0.5s ease-in-out;
+        }
+        h3 {
+            font-size: 2em;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 20px 0;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            transition: 0.3s;
+        }
+    </style>
     <script>
-        // Google ドライブのダウンロードリンク
+        const themes = [
+            {
+                background: "linear-gradient(to right, #232526, #414345)",
+                buttonBg: "#444",
+                buttonHover: "#666",
+                title: "ブラックサンダーストリーム",
+                highlight: "平蔵の黒歴史"
+            },
+            {
+                background: "linear-gradient(to right, #ff9a9e, #fad0c4)",
+                buttonBg: "#ff6b81",
+                buttonHover: "#ff4757",
+                title: "D.D.",
+                highlight: "あーりえない"
+            },
+            {
+                background: "linear-gradient(to right, #b5651d, #ffb36b)",
+                buttonBg: "#d2691e",
+                buttonHover: "#e07b39",
+                title: "歴総の片岡迅登にいつも問う　今日の換気は何でしようか by小林先生",
+                highlight: "Second World warrrrrrrr!"
+            }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            let theme = themes[Math.floor(Math.random() * themes.length)];
+            document.body.style.background = theme.background;
+            document.documentElement.style.setProperty("--button-bg", theme.buttonBg);
+            document.documentElement.style.setProperty("--button-hover", theme.buttonHover);
+            document.getElementById("title").innerText = theme.title;
+            document.querySelectorAll("a").forEach(link => {
+                if (link.innerText.includes(theme.highlight)) {
+                    link.style.fontWeight = "bold";
+                    link.style.fontSize = "1.5em";
+                    link.style.textDecoration = "underline";
+                }
+            });
+        });
+    </script>
+    <style>
+        a {
+            background: var(--button-bg, #444);
+            color: white;
+        }
+        a:hover {
+            background: var(--button-hover, #666);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h3 id="title">ようこそ</h3>
+    <ul>
+        <li><a href="#" onclick="requestPassword('平蔵の黒歴史')">漆黒のバイブル</a></li>
+        <li><a href="#" onclick="requestPassword('あーりえない')">奄美のプリンス</a></li>
+        <li><a href="#" onclick="requestPassword('Second World warrrrrrrr!')">Give me chocolate</a></li>
+    </ul>
+    <script>
         const files = {
             "平蔵の黒歴史": "index1.html",
-            "あ-りえない": "index2.html",
-            "Second World warrrrrrrr": "index3.html"
+            "あーりえない":  "index2.html",
+            "Second World warrrrrrrr!": "index3.html"
         };
 
-        // ファイルごとのパスワード設定
         const passwords = {
             "平蔵の黒歴史": "ものさし",
-            "あ-りえない": "サッシィ-",
+            "あーりえない": "サッシィー",
             "Second World warrrrrrrr!": "cold war"
         };
 
         function requestPassword(fileName) {
-            let userPassword = prompt(fileName + " のパスワードを入力してね！:");
+            let userPassword = prompt(fileName + " の<愛>言葉を入力してね！:");
 
             if (userPassword === passwords[fileName]) {
-                window.location.href = files[fileName]; // Google ドライブのダウンロードリンクを開く
+                window.location.href = files[fileName];
             } else {
                 alert("パスワードが違うよお＞＜");
             }
         }
     </script>
-</head>
-<body>
-    <h3>ちゃろー☆</h3>
-    <ul>
-        <li><a href="#" onclick="requestPassword('平蔵の黒歴史')">漆黒のバイブル</a></li>
-        <li><a href="#" onclick="requestPassword('あーりえない')">奄美のプリンス</a></li>
-        <li><a href="#" onclick="requestPassword('Second World warrrrrrrr!')">Give me chcolate</a></li>
-    </ul>
 </body>
 </html>
