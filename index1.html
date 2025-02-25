@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>平蔵</title>
     <meta charset="UTF-8"/>
-    </title>
-  </head>
-  <body>
+    <style>
+        body {
+            background: linear-gradient(to right, #232526, #414345);
+            color: #fff;
+            text-align: center;
+            font-family: "Arial", sans-serif;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        video {
+            margin-top: 20px;
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 25px;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+            transition: 0.3s;
+        }
+        a:hover {
+            background: #666;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
     <h1>平蔵です！</h1>
-    <video src="./IMG_2534.mov" autoplay muted></video>
-    <a href="index.html"><ここから戻れるよ></a>
- </body>
+    <video src="./IMG_2534.mov" loop autoplay muted ></video>
+    <br>
+    <a href="index.html">ここから戻れるよ</a>
+</body>
 </html>
