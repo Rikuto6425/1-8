@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実験だよお～！</title>
+    <script>
+        // Google ドライブのダウンロードリンク
+        const files = {
+            "平蔵の黒歴史": "index1.html",
+            "あ-りえない": "index2.html",
+            "Second World warrrrrrrr": "index3.html"
+        };
+
+        // ファイルごとのパスワード設定
+        const passwords = {
+            "平蔵の黒歴史": "ものさし",
+            "あ-りえない": "サッシィ-",
+            "Second World warrrrrrrr!": "cold war"
+        };
+
+        function requestPassword(fileName) {
+            let userPassword = prompt(fileName + " のパスワードを入力してね！:");
+
+            if (userPassword === passwords[fileName]) {
+                window.location.href = files[fileName]; // Google ドライブのダウンロードリンクを開く
+            } else {
+                alert("パスワードが違うよお＞＜");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>ちゃろー☆</h3>
+    <ul>
+        <li><a href="#" onclick="requestPassword('平蔵の黒歴史')">漆黒のバイブル</a></li>
+        <li><a href="#" onclick="requestPassword('あーりえない')">奄美のプリンス</a></li>
+        <li><a href="#" onclick="requestPassword('Second World warrrrrrrr!')">Give me chcolate</a></li>
+    </ul>
+</body>
+</html>
